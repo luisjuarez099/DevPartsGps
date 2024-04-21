@@ -1,4 +1,5 @@
 // Función para obtener y actualizar los datos de la gráfica
+//recibe los datos enviados en php en un objeto json, aqui se agregan los datos a la gráfica de barra
 function actualizarGrafica() {
     fetch('../php/graficas.php')
         .then(response => response.json())
@@ -6,6 +7,16 @@ function actualizarGrafica() {
             // Actualizar la gráfica con los nuevos datos
             myChart.data = data;
             myChart.update();
+        })
+        .catch(error => console.error('Error al obtener los datos:', error));
+}
+function actualizarGrafica() {
+    fetch('../php/graficas.php')
+        .then(response => response.json())
+        .then(data => {
+            // Actualizar la gráfica con los nuevos datos
+            gPie.data = data;
+            gPie.update();
         })
         .catch(error => console.error('Error al obtener los datos:', error));
 }
@@ -28,7 +39,7 @@ const opciones = {
 };
 
 
-let cantidadServidor = 0;
+let cantidadServidor = 0; // Variable global para almacenar la cantidad de datos en el servidor
 function actualizarGraficaConNuevosDatos() {
     fetch('../php/actualizar.php')
         .then(response => response.text())
@@ -51,27 +62,50 @@ function actualizarGraficaConNuevosDatos() {
 
 // Obtener el contexto del lienzo
 const ctx = document.getElementById('myChart').getContext('2d');
-
+const ctx2 = document.getElementById('gPie').getContext('2d');
 // Configurar fuentes globales para el texto blanco
 Chart.defaults.font.color = 'white';
 
 // Crear la gráfica inicial
 let myChart;
+let myChart2;
+// Crear la gráfica inicial de barras
 fetch('../php/graficas.php')
     .then(response => response.json())
     .then(data => {
         // Crear el gráfico con los datos recibidos
         myChart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: opciones,
+            });
+
+        // Iniciar el polling para actualizar la gráfica cada 5 segundos (5000 milisegundos)
+        setInterval(actualizarGraficaConNuevosDatos, 1000);
+    })
+    .catch(error => console.error('Error al obtener los datos:', error)
+ );
+
+// Crear la gráfica inicial de pastel
+fetch('../php/graficas.php')
+    .then(response => response.json())
+    .then(data => {
+        // Crear el gráfico con los datos recibidos
+        gPie = new Chart(ctx2, {
             type: 'bar',
             data: data,
-            options: opciones
+            options: opciones,
+
         });
 
         // Iniciar el polling para actualizar la gráfica cada 5 segundos (5000 milisegundos)
         setInterval(actualizarGraficaConNuevosDatos, 1000);
     })
-    .catch(error => console.error('Error al obtener los datos:', error));
+    .catch(error => console.error('Error al obtener los datos:', error)
+ );
 
+
+// se hace mostrar la tabla que esta encima de la gráfica de barras y de pastel
 $(document).ready(function () {
     $('#tabla').DataTable({
         "ajax": {

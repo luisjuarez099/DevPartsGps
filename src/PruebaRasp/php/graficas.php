@@ -16,11 +16,12 @@ $datosMovimientos = array(
     "labels" => array(),
     "datasets" => array(
         array(
-            "label" => "Cantidad de movimientos",
             "data" => array(),
-            "backgroundColor" => array("pink", "indigo", "green" , "orange"), // Puedes personalizar los colores aquí
-            "borderColor" => "rgba(54, 162, 235, 1)",
+            "label" => array(),
+            "backgroundColor" => array("#ED9455", "#FFBB70", "#FFEC9E"), // Puedes personalizar los colores aquí
+            "borderColor" => array("#B1A9FF", "blue", "#FF92AD"), // Puedes personalizar los colores aquí
             "borderWidth" => 1
+            
         )
     )
 );

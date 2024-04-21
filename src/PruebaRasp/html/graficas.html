@@ -46,13 +46,22 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="w-1/2 ">
-            <div class="w-full mx-auto mt-7" id="chart-container" style="background-color: #5e7e9fb3; color: white; ">
-                <canvas id="myChart" width="300" height="200"></canvas>
-                <!-- <canvas id="myScatterChart" width="400" height="400"></canvas> -->
+        <!-- Se hace la modificacion visual de las graficas barras y pastel -->
+        <div class="w-full flex flex-wrap">
+            <div class="w-full md:w-1/2 flex flex-col justify-between">
+                <div class="w-full mx-auto mt-7 p-2" id="chart-container" style="background-color: #5e7e9fb3; color: white;">
+                    <!-- Grafica de barras -->
+                    <canvas id="myChart" width="350" height="300"></canvas>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 flex flex-col justify-between">
+                <div class="w-full mx-auto mt-7 p-2" id="chart-container" style="background-color: #5e7e9fb3; color: white;">
+                    <!-- Grafica circular -->
+                    <canvas id="gPie" width="350" height="350"></canvas>
+                </div>
             </div>
         </div>
+        
         <div class="mx-auto mt-7"></div>
         <div class="mx-auto mt-10"></div>
 
@@ -60,6 +69,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
+        <!-- Hacemos llamar a cada una de las graficas de nuestro archvio -->
         <script src="../js/graficas.js"></script>
 
     </main>
