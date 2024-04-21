@@ -1,0 +1,47 @@
+/* Estilos generales */
+@keyframes gradient {
+    100% {
+      background-size: 4000px 1000px;
+    }
+  }
+  
+body {
+    background-image: url("../css/bg.svg");
+    background-size: 2000px 1000px;
+    background-position: -500px 0;
+    color: #000000;
+    animation: gradient 10s infinite alternate linear;
+    margin: 0;
+
+    
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center!important;
+    /* padding: 10px 0; */
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+    clear: both;
+}
+
+li{
+    /* margin-left: 10px; */
+    font-size: 25px!important;
+}
+img { 
+    display: block;
+    margin: auto;
+}
+.parrafo{
+    max-width: max-content;
+    font-size: 20px!important;
+}
+h1{
+    font-size: 35px!important;
+}
+h2{
+    font-size: 30px!important;
+}

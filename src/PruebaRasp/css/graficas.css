@@ -1,0 +1,46 @@
+  @keyframes gradient {
+    100% {
+      background-size: 4000px 1000px;
+    }
+  }
+  
+  body {
+    background-image: url("../css/bg.svg");
+    background-size: 2000px 1000px;
+    background-position: -500px 0;
+    color: #000000;
+    font-family: "Euclid Circular A";
+    animation: gradient 10s infinite alternate linear;
+  }
+  
+  .chart-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    max-width: 100%; /* El contenedor no será más grande que el ancho del viewport */
+    box-sizing: border-box; /* Incluir el padding y el borde en el tamaño total */
+}
+
+canvas {
+    max-width: 100%; /* El canvas no será más grande que el contenedor */
+    height: auto; /* Permitir que el canvas se ajuste automáticamente al tamaño del contenedor */
+    display: block; /* Asegurarse de que el canvas se muestre como un bloque */
+}
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center!important;
+  padding: 10px 0;
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  clear: both;
+}
+  
+  
+
+  
+  
