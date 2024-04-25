@@ -16,7 +16,7 @@ $sql = "SELECT
             idmovimiento,
             localizacion, 
             DATE_FORMAT(fecha, '%W, %d de %M de %Y') as fecha, 
-            DATE_FORMAT(hora, '%H:%i') as hora 
+            tipo_movimiento as hora
         FROM 
             movimiento 
         ORDER BY 

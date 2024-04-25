@@ -10,6 +10,7 @@ function actualizarGrafica() {
         })
         .catch(error => console.error('Error al obtener los datos:', error));
 }
+
 function actualizarGrafica() {
     fetch('../php/graficas.php')
         .then(response => response.json())
@@ -75,7 +76,7 @@ fetch('../php/graficas.php')
     .then(data => {
         // Crear el gráfico con los datos recibidos
         myChart = new Chart(ctx, {
-            type: 'pie',
+            type: 'bar',
             data: data,
             options: opciones,
             });
@@ -92,7 +93,7 @@ fetch('../php/graficas.php')
     .then(data => {
         // Crear el gráfico con los datos recibidos
         gPie = new Chart(ctx2, {
-            type: 'bar',
+            type: 'pie',
             data: data,
             options: opciones,
 
@@ -116,7 +117,7 @@ $(document).ready(function () {
             { "data": "idmovimiento" },
             { "data": "localizacion" },
             { "data": "fecha" },
-            { "data": "hora" }
+            { "data": "hora" },
         ],
         paging: false,
         scrollCollapse: true,
